@@ -399,7 +399,7 @@
 
         //apply any theme/custom CSS
         if (this.customClass.length)
-            this.container.find('.daterangepicker').addClass(this.customClass);
+            this.container.addClass(this.customClass);
 
         //apply CSS classes and labels to buttons
         this.container.find('.applyBtn, .cancelBtn').addClass(this.buttonClasses);
