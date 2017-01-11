@@ -62,6 +62,7 @@
         this.buttonClasses = 'btn btn-sm';
         this.applyClass = 'btn-success';
         this.cancelClass = 'btn-default';
+        this.customClass = '';
 
         this.locale = {
             direction: 'ltr',
@@ -203,6 +204,9 @@
 
         if (typeof options.cancelClass === 'string')
             this.cancelClass = options.cancelClass;
+
+        if (typeof options.customClass === 'string')
+            this.customClass = options.customClass;
 
         if (typeof options.dateLimit === 'object')
             this.dateLimit = options.dateLimit;
@@ -392,6 +396,10 @@
         if (typeof options.ranges !== 'undefined' && this.opens == 'right') {
             this.container.find('.ranges').prependTo( this.container.find('.calendar.left').parent() );
         }
+
+        //apply any theme/custom CSS
+        if (this.customClass.length)
+            this.container.find('.daterangepicker').addClass(this.customClass);
 
         //apply CSS classes and labels to buttons
         this.container.find('.applyBtn, .cancelBtn').addClass(this.buttonClasses);
